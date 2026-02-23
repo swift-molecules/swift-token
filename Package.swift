@@ -15,31 +15,46 @@ let package = Package(
         .library(
             name: "Token Primitives",
             targets: ["Token Primitives"]
-        )
+        ),
+        .library(
+            name: "Token Primitives Test Support",
+            targets: ["Token Primitives Test Support"]
+        ),
     ],
     dependencies: [
-        .package(path: "../swift-source-primitives"),
         .package(path: "../swift-text-primitives")
     ],
     targets: [
         .target(
             name: "Token Primitives",
             dependencies: [
-                .product(name: "Source Primitives", package: "swift-source-primitives"),
                 .product(name: "Text Primitives", package: "swift-text-primitives")
             ]
-        )
+        ),
+        .target(
+            name: "Token Primitives Test Support",
+            dependencies: [
+                "Token Primitives",
+                .product(name: "Text Primitives Test Support", package: "swift-text-primitives"),
+            ],
+            path: "Tests/Support"
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let settings: [SwiftSetting] = [
+    let ecosystem: [SwiftSetting] = [
+        .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
         .enableExperimentalFeature("Lifetimes"),
-        .strictMemorySafety()
+        .enableExperimentalFeature("SuppressedAssociatedTypes"),
+        .enableExperimentalFeature("SuppressedAssociatedTypesWithDefaults"),
     ]
-    target.swiftSettings = (target.swiftSettings ?? []) + settings
+
+    let package: [SwiftSetting] = []
+
+    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }

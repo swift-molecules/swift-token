@@ -12,20 +12,14 @@ let package = Package(
         .visionOS(.v26),
     ],
     dependencies: [
-        // Parent package
         .package(path: "../"),
-        // Testing framework
-        .package(path: "../../../swift-foundations/swift-testing"),
-        // Test primitives (for test utilities)
-        .package(path: "../../swift-test-primitives"),
     ],
     targets: [
         .testTarget(
             name: "Token Primitives Tests",
             dependencies: [
                 .product(name: "Token Primitives", package: "swift-token-primitives"),
-                .product(name: "Testing", package: "swift-testing"),
-                .product(name: "Test Primitives", package: "swift-test-primitives"),
+                .product(name: "Token Primitives Test Support", package: "swift-token-primitives"),
             ],
             path: "Sources/Token Primitives Tests"
         ),
