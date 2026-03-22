@@ -9,4 +9,4 @@
 //
 // ===----------------------------------------------------------------------===//
 
-public import Token_Primitives
+internal import Token_Primitives
