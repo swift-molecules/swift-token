@@ -23,7 +23,9 @@ extension Token {
 
         // MARK: - Keywords
 
-        /// A Swift keyword. See ``Token/Keyword`` for the full enumeration.
+        /// A Swift keyword.
+        ///
+        /// See ``Token/Keyword`` for the full enumeration.
         case keyword(Token.Keyword)
 
         // MARK: - Punctuation
