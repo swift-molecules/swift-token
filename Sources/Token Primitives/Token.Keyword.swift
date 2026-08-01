@@ -128,6 +128,9 @@ extension Token.Keyword: Comparable {
     /// Orders two keywords by their underlying raw value.
     @inlinable
     public static func < (lhs: Self, rhs: Self) -> Bool {
+        // swift-linter:disable:next raw value access
+        // REASON: same-type implementation of Token.Keyword's own Comparable
+        // conformance — the type's own raw-value boundary.
         lhs.rawValue < rhs.rawValue
     }
 }

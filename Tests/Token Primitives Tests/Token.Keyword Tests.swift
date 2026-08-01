@@ -18,7 +18,7 @@ extension Token.Keyword {
     @Suite
     struct Test {
         @Suite struct Unit {}
-        @Suite struct EdgeCase {}
+        @Suite struct `Edge Case` {}
     }
 }
 
@@ -37,8 +37,10 @@ extension Token.Keyword.Test.Unit {
 
     @Test
     func `round-trip via rawValue preserves identity`() {
-        for rawValue in UInt8(0)..<UInt8(64) {
+        (UInt8(0)..<UInt8(64)).forEach { rawValue in
             if let keyword = Token.Keyword(rawValue: rawValue) {
+                // swift-linter:disable:next raw value access
+                // REASON: this test asserts the rawValue round-trip itself.
                 #expect(keyword.rawValue == rawValue)
             }
         }
@@ -227,7 +229,7 @@ extension Token.Keyword.Test.Unit {
 
 // MARK: - EdgeCase
 
-extension Token.Keyword.Test.EdgeCase {
+extension Token.Keyword.Test.`Edge Case` {
     @Test
     func `invalid rawValue returns nil`() {
         #expect(Token.Keyword(rawValue: 255) == nil)
