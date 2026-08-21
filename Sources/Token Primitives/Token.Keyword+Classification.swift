@@ -1,18 +1,5 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-token-primitives open source project
-//
-// Copyright (c) 2025 Coen ten Thije Boonkkamp and the swift-token-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
-// MARK: - Classification
-
 extension Token.Keyword {
-    /// Whether this keyword introduces a declaration.
+
     @inlinable
     public var isDeclaration: Bool {
         switch self {
@@ -26,7 +13,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword introduces or continues a control flow statement.
     @inlinable
     public var isStatement: Bool {
         switch self {
@@ -39,7 +25,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword is used in error handling.
     @inlinable
     public var isErrorHandling: Bool {
         switch self {
@@ -51,7 +36,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword relates to ownership or mutation.
     @inlinable
     public var isOwnership: Bool {
         switch self {
@@ -63,7 +47,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword specifies access control.
     @inlinable
     public var isAccessControl: Bool {
         switch self {
@@ -75,7 +58,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword is a property accessor specifier.
     @inlinable
     public var isAccessor: Bool {
         switch self {
@@ -87,8 +69,6 @@ extension Token.Keyword {
         }
     }
 
-    /// Whether this keyword is contextual (not reserved; can appear as an
-    /// identifier in other positions).
     @inlinable
     public var isContextual: Bool {
         switch self {
@@ -102,7 +82,6 @@ extension Token.Keyword {
         }
     }
 
-    /// The canonical text of this keyword.
     @inlinable
     public var text: Swift.String {
         switch self {

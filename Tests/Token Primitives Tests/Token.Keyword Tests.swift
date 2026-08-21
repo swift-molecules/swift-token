@@ -1,18 +1,5 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-token-primitives open source project
-//
-// Copyright (c) 2025 Coen ten Thije Boonkkamp and the swift-token-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Testing
 import Token_Primitives_Test_Support
-
-// MARK: - Token.Keyword
 
 extension Token.Keyword {
     @Suite
@@ -22,11 +9,7 @@ extension Token.Keyword {
     }
 }
 
-// MARK: - Unit
-
 extension Token.Keyword.Test.Unit {
-
-    // MARK: Raw Value
 
     @Test
     func `rawValue is backed by UInt8`() {
@@ -39,14 +22,11 @@ extension Token.Keyword.Test.Unit {
     func `round-trip via rawValue preserves identity`() {
         (UInt8(0)..<UInt8(64)).forEach { rawValue in
             if let keyword = Token.Keyword(rawValue: rawValue) {
-                // swift-linter:disable:next raw value access
-                // REASON: this test asserts the rawValue round-trip itself.
+
                 #expect(keyword.rawValue == rawValue)
             }
         }
     }
-
-    // MARK: Comparable
 
     @Test
     func `comparable follows declaration order`() {
@@ -54,8 +34,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword.enum < Token.Keyword.func)
         #expect(!(Token.Keyword.func < Token.Keyword.struct))
     }
-
-    // MARK: Equatable and Hashable
 
     @Test
     func `equal keywords compare equal`() {
@@ -70,8 +48,6 @@ extension Token.Keyword.Test.Unit {
         set.insert(.func)
         #expect(set.count == 3)
     }
-
-    // MARK: Text — Declaration Keywords
 
     @Test
     func `text for declaration keywords`() {
@@ -94,8 +70,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword.case.text == "case")
     }
 
-    // MARK: Text — Ownership Keywords
-
     @Test
     func `text for ownership keywords`() {
         #expect(Token.Keyword.consuming.text == "consuming")
@@ -105,8 +79,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword.nonmutating.text == "nonmutating")
     }
 
-    // MARK: Text — Accessor Keywords
-
     @Test
     func `text for accessor keywords`() {
         #expect(Token.Keyword.get.text == "get")
@@ -114,8 +86,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword._read.text == "_read")
         #expect(Token.Keyword._modify.text == "_modify")
     }
-
-    // MARK: Text — Type Keywords
 
     @Test
     func `text for type keywords`() {
@@ -133,8 +103,6 @@ extension Token.Keyword.Test.Unit {
         #expect(falseKw.text == "false")
     }
 
-    // MARK: Classification — isDeclaration
-
     @Test
     func `isDeclaration identifies declaration keywords`() {
         #expect(Token.Keyword.struct.isDeclaration)
@@ -146,8 +114,6 @@ extension Token.Keyword.Test.Unit {
         #expect(!Token.Keyword.if.isDeclaration)
         #expect(!Token.Keyword.consuming.isDeclaration)
     }
-
-    // MARK: Classification — isStatement
 
     @Test
     func `isStatement identifies statement keywords`() {
@@ -161,8 +127,6 @@ extension Token.Keyword.Test.Unit {
         #expect(!Token.Keyword.throw.isStatement)
     }
 
-    // MARK: Classification — isErrorHandling
-
     @Test
     func `isErrorHandling identifies error handling keywords`() {
         #expect(Token.Keyword.throw.isErrorHandling)
@@ -172,8 +136,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword.catch.isErrorHandling)
         #expect(!Token.Keyword.if.isErrorHandling)
     }
-
-    // MARK: Classification — isOwnership
 
     @Test
     func `isOwnership identifies ownership keywords`() {
@@ -185,8 +147,6 @@ extension Token.Keyword.Test.Unit {
         #expect(!Token.Keyword.public.isOwnership)
     }
 
-    // MARK: Classification — isAccessControl
-
     @Test
     func `isAccessControl identifies access control keywords`() {
         #expect(Token.Keyword.public.isAccessControl)
@@ -197,8 +157,6 @@ extension Token.Keyword.Test.Unit {
         #expect(!Token.Keyword.static.isAccessControl)
     }
 
-    // MARK: Classification — isAccessor
-
     @Test
     func `isAccessor identifies accessor keywords`() {
         #expect(Token.Keyword.get.isAccessor)
@@ -207,8 +165,6 @@ extension Token.Keyword.Test.Unit {
         #expect(Token.Keyword._modify.isAccessor)
         #expect(!Token.Keyword.func.isAccessor)
     }
-
-    // MARK: Classification — isContextual
 
     @Test
     func `isContextual identifies contextual keywords`() {
@@ -226,8 +182,6 @@ extension Token.Keyword.Test.Unit {
         #expect(!Token.Keyword.public.isContextual)
     }
 }
-
-// MARK: - EdgeCase
 
 extension Token.Keyword.Test.`Edge Case` {
     @Test

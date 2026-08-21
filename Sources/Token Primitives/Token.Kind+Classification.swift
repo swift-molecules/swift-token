@@ -1,25 +1,11 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-token-primitives open source project
-//
-// Copyright (c) 2025 Coen ten Thije Boonkkamp and the swift-token-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
-// MARK: - Classification
-
 extension Token.Kind {
-    /// Whether this token is a keyword.
+
     @inlinable
     public var isKeyword: Bool {
         if case .keyword = self { return true }
         return false
     }
 
-    /// Whether this token is punctuation (a fixed-text delimiter).
     @inlinable
     public var isPunctuation: Bool {
         switch self {
@@ -35,7 +21,6 @@ extension Token.Kind {
         }
     }
 
-    /// Whether this token is an operator.
     @inlinable
     public var isOperator: Bool {
         switch self {
@@ -47,7 +32,6 @@ extension Token.Kind {
         }
     }
 
-    /// Whether this token is a literal.
     @inlinable
     public var isLiteral: Bool {
         switch self {
@@ -60,7 +44,6 @@ extension Token.Kind {
         }
     }
 
-    /// Whether this token is an identifier.
     @inlinable
     public var isIdentifier: Bool {
         switch self {
@@ -72,10 +55,6 @@ extension Token.Kind {
         }
     }
 
-    /// The fixed text for this token kind, if deterministic.
-    ///
-    /// Returns `nil` for variable-text kinds (operators, identifiers, literals,
-    /// keywords) where the text depends on source content.
     @inlinable
     public var fixedText: Swift.String? {
         switch self {

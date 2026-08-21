@@ -1,18 +1,5 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-token-primitives open source project
-//
-// Copyright (c) 2025 Coen ten Thije Boonkkamp and the swift-token-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Testing
 import Token_Primitives_Test_Support
-
-// MARK: - Token
 
 extension Token {
     @Suite
@@ -21,8 +8,6 @@ extension Token {
         @Suite struct `Edge Case` {}
     }
 }
-
-// MARK: - Unit
 
 extension Token.Test.Unit {
     @Test
