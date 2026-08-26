@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-token-primitives",
+    name: "swift-token",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,40 +13,40 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Token Primitives",
-            targets: ["Token Primitives"]
+            name: "Token",
+            targets: ["Token"]
         ),
         .library(
-            name: "Token Primitives Test Support",
-            targets: ["Token Primitives Test Support"]
+            name: "Token Test Support",
+            targets: ["Token Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-text-primitives.git",
+            url: "https://github.com/swift-molecules/swift-text.git",
             branch: "main"
         )
     ],
     targets: [
         .target(
-            name: "Token Primitives",
+            name: "Token",
             dependencies: [
-                .product(name: "Text Primitives", package: "swift-text-primitives")
+                .product(name: "Text", package: "swift-text")
             ]
         ),
         .target(
-            name: "Token Primitives Test Support",
+            name: "Token Test Support",
             dependencies: [
-                "Token Primitives",
-                .product(name: "Text Primitives Test Support", package: "swift-text-primitives"),
+                "Token",
+                .product(name: "Text Test Support", package: "swift-text"),
             ],
             path: "Tests/Support"
         ),
         .testTarget(
-            name: "Token Primitives Tests",
+            name: "Token Tests",
             dependencies: [
-                "Token Primitives",
-                "Token Primitives Test Support",
+                "Token",
+                "Token Test Support",
             ]
         ),
     ],

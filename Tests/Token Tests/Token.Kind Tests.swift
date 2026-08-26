@@ -1,5 +1,5 @@
 import Testing
-import Token_Primitives_Test_Support
+import Token_Test_Support
 
 extension Token.Kind {
     @Suite
