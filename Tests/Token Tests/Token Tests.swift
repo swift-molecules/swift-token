@@ -1,5 +1,6 @@
 import Testing
-import Token_Test_Support
+import Token
+import Text
 
 extension Token {
     @Suite

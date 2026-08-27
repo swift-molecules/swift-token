@@ -1,5 +1,5 @@
 import Testing
-import Token_Test_Support
+import Token
 
 extension Token.Keyword {
     @Suite

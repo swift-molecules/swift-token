@@ -1,3 +1,5 @@
+public import Text
+
 public struct Token: Sendable, Equatable, Hashable {
 
     public let kind: Kind

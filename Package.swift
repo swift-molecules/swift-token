@@ -17,13 +17,17 @@ let package = Package(
             targets: ["Token"]
         ),
         .library(
-            name: "Token Test Support",
-            targets: ["Token Test Support"]
+            name: "Token Standard Library Integration",
+            targets: ["Token Standard Library Integration"]
+        ),
+        .library(
+            name: "Token Apple Foundation Integration",
+            targets: ["Token Apple Foundation Integration"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-text.git",
+            url: "https://github.com/swift-atoms/swift-text.git",
             branch: "main"
         )
     ],
@@ -35,19 +39,19 @@ let package = Package(
             ]
         ),
         .target(
-            name: "Token Test Support",
+            name: "Token Standard Library Integration",
+            dependencies: ["Token"]
+        ),
+        .target(
+            name: "Token Apple Foundation Integration",
             dependencies: [
                 "Token",
-                .product(name: "Text Test Support", package: "swift-text"),
-            ],
-            path: "Tests/Support"
+                "Token Standard Library Integration",
+            ]
         ),
         .testTarget(
             name: "Token Tests",
-            dependencies: [
-                "Token",
-                "Token Test Support",
-            ]
+            dependencies: ["Token"]
         ),
     ],
     swiftLanguageModes: [.v6]
