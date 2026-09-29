@@ -51,7 +51,7 @@ let package = Package(
         ),
         .testTarget(
             name: "Token Tests",
-            dependencies: ["Token"]
+            dependencies: ["Token", .product(name: "Text", package: "swift-text")]
         ),
     ],
     swiftLanguageModes: [.v6]
