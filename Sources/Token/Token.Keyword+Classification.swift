@@ -83,7 +83,7 @@ extension Token.Keyword {
     }
 
     @inlinable
-    public var text: Swift.String {
+    public var text: Swift::String {
         switch self {
         case .struct: return "struct"
         case .enum: return "enum"

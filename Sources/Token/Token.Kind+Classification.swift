@@ -56,7 +56,7 @@ extension Token.Kind {
     }
 
     @inlinable
-    public var fixedText: Swift.String? {
+    public var fixedText: Swift::String? {
         switch self {
         case .leftBrace: return "{"
         case .rightBrace: return "}"

@@ -1,1 +1,1 @@
-public import Token
+internal import Token
