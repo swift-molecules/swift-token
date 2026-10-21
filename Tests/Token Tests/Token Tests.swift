@@ -1,6 +1,6 @@
 import Testing
-import Token
 import Text
+import Token
 
 extension Token {
     @Suite

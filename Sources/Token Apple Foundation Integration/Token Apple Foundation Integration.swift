@@ -1,3 +1,3 @@
+internal import Foundation
 internal import Token
 internal import Token_Standard_Library_Integration
-internal import Foundation
