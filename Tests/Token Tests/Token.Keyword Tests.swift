@@ -1,7 +1,9 @@
 import Testing
 import Token
 
-extension Token.Keyword {
+enum `Token.Keyword Tests` {}
+
+extension `Token.Keyword Tests` {
     @Suite
     struct Test {
         @Suite struct Unit {}
@@ -9,7 +11,7 @@ extension Token.Keyword {
     }
 }
 
-extension Token.Keyword.Test.Unit {
+extension `Token.Keyword Tests`.Test.Unit {
 
     @Test
     func `rawValue is backed by UInt8`() {
@@ -183,7 +185,7 @@ extension Token.Keyword.Test.Unit {
     }
 }
 
-extension Token.Keyword.Test.`Edge Case` {
+extension `Token.Keyword Tests`.Test.`Edge Case` {
     @Test
     func `invalid rawValue returns nil`() {
         #expect(Token.Keyword(rawValue: 255) == nil)

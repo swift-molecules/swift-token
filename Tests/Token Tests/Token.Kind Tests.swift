@@ -2,7 +2,9 @@ import Testing
 import Text
 import Token
 
-extension Token.Kind {
+enum `Token.Kind Tests` {}
+
+extension `Token.Kind Tests` {
     @Suite
     struct Test {
         @Suite struct Unit {}
@@ -10,7 +12,7 @@ extension Token.Kind {
     }
 }
 
-extension Token.Kind.Test.Unit {
+extension `Token.Kind Tests`.Test.Unit {
     @Test
     func `keyword equality`() {
         let a: Token.Kind = .keyword(.func)

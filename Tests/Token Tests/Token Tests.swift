@@ -2,7 +2,9 @@ import Testing
 import Text
 import Token
 
-extension Token {
+enum `Token Tests` {}
+
+extension `Token Tests` {
     @Suite
     struct Test {
         @Suite struct Unit {}
@@ -10,7 +12,7 @@ extension Token {
     }
 }
 
-extension Token.Test.Unit {
+extension `Token Tests`.Test.Unit {
     @Test
     func `init stores kind and range`() {
         let range = Text.Range(start: 0, end: 5)
